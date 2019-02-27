@@ -21,9 +21,14 @@ import io.micrometer.core.tck.MeterRegistryCompatibilityKit;
 
 import java.time.Duration;
 
-public class AzureMonitorMeterRegistryCompatibilityKit extends MeterRegistryCompatibilityKit {
+class AzureMonitorMeterRegistryCompatibilityKit extends MeterRegistryCompatibilityKit {
 
     private final AzureMonitorConfig config = new AzureMonitorConfig() {
+        @Override
+        public String instrumentationKey() {
+            return "fakeKey";
+        }
+
         @Override
         public String get(String key) {
             return null;
